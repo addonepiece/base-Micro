@@ -30,6 +30,10 @@
     <relativePath/>
   </parent>
 
+    <modules>
+        <module>cloud-eureka-server</module>
+    </modules>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
