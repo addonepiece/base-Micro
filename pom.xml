@@ -31,7 +31,8 @@
   </parent>
 
     <modules>
-        <module>cloud-eureka-server</module>
+      <module>cloud-eureka-server</module>
+      <module>rbac-service</module>
     </modules>
 
   <dependencyManagement>
