@@ -33,6 +33,7 @@
     <modules>
       <module>cloud-eureka-server</module>
       <module>rbac-service</module>
+      <module>cms-service</module>
     </modules>
 
   <dependencyManagement>

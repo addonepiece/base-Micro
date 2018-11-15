@@ -1,0 +1,46 @@
+踩过的坑
+    1，阿里云服务器安装tomcat时，修改tomcat config server.xml时出现centos下vim修改保存的文件有不正确的内容导致tomcat无法启动。
+        端口需要在阿里云服务的实例中的配置放行。
+
+    2.jenkins自动构建
+        插件的下载   maven编译时注意项目中pom文件的maven相关plugin的正确配置。如maven项目不能配置springboot项目的maven插件
+        <!--<groupId>org.springframework.boot</groupId>--> <!--<artifactId>spring-boot-maven-plugin</artifactId>-->
+
+    3.如果maven项目中有modules，则要在modules的pom.xml中配置 <parent>
+                                                       <groupId>com.dly</groupId>
+                                                       <artifactId>base-micro</artifactId>
+                                                       <version>1.0-SNAPSHOT</version>
+                                                       <relativePath>../pom.xml</relativePath>
+                                                   </parent>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Q&A
+    IDAE中 Maven Projects view 中Lifecycle和Plugins的区别
