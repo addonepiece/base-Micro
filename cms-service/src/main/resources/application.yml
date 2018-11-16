@@ -10,3 +10,7 @@ eureka:
 spring:
   application:
     name: cms-service
+
+feign:
+  hystrix:
+    enabled: true
