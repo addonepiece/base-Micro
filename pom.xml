@@ -35,6 +35,7 @@
       <module>rbac-service</module>
       <module>cms-service</module>
       <module>zuul-service</module>
+      <module>cloud-config-server</module>
     </modules>
 
   <dependencyManagement>

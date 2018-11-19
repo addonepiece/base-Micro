@@ -24,4 +24,11 @@ public class RbacServiceApplication {
 	public String home(@RequestParam(value = "name", defaultValue = "forezp") String name) {
 		return "hi " + name + " ,i am from port:" + port;
 	}
+
+	@Value("${test}")
+	String test;
+	@RequestMapping(value = "/test")
+	public String test(){
+		return test;
+	}
 }
