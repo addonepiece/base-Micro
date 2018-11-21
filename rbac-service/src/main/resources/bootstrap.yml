@@ -2,5 +2,13 @@ spring:
   cloud:
     config:
       label: master
+#      profile: @config.profile.name@
       profile: dev
       uri: http://localhost:8763/
+#      name: @name@
+      name: rbac-service
+
+#the suffix of service name on eureka
+#envzone: @envzone.name@
+envzone: dev
+
