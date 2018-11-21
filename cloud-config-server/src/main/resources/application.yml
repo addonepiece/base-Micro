@@ -1,0 +1,15 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/addonepiece/cloud-config.git
+          search-paths: base-micro/
+#          username:
+#          password:
+      label: master
