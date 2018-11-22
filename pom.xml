@@ -32,10 +32,10 @@
 
     <modules>
       <module>cloud-eureka-server</module>
+      <module>cloud-config-server</module>
+      <module>zuul-service</module>
       <module>rbac-service</module>
       <module>cms-service</module>
-      <module>zuul-service</module>
-      <module>cloud-config-server</module>
     </modules>
 
   <dependencyManagement>
