@@ -16,6 +16,9 @@ zuul:
     rbac-api:
       path: /rbac-api/**
       serviceId: rbac-service
+    auth-api:
+      path: /auth-api/**
+      serviceId: auth-service
     cms-api:
       path: /cms-api/**
       serviceId: cms-service
