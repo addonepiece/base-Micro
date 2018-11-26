@@ -25,10 +25,10 @@ public class RbacServiceApplication {
 		return "hi " + name + " ,i am from port:" + port;
 	}
 
-	@Value("${test}")
-	String test;
-	@RequestMapping(value = "/test")
-	public String test(){
-		return test;
-	}
+//	@Value("${test}")
+//	String test;
+//	@RequestMapping(value = "/test")
+//	public String test(){
+//		return test;
+//	}
 }

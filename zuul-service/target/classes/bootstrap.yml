@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8763/
+      name: cloud-zuul-server
+
+envzone: dev
