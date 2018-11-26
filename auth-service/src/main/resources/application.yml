@@ -1,0 +1,12 @@
+server:
+  port: 1885
+
+spring:
+  application:
+    # 服务与服务之间相互调用一般都是根据这个name 。
+    name: auth-service
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
