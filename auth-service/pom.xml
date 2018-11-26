@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dly</groupId>
-    <artifactId>auth-service</artifactId>
+    <artifactId>${service.name}</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -17,6 +17,40 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <properties>
+        <!--development environment -->
+        <dev.config.profile.name>dev</dev.config.profile.name>
+        <dev.service.name>auth-service-dev</dev.service.name>
+        <!--production environment -->
+        <pro.config.profile.name>pro</pro.config.profile.name>
+        <pro.service.name>auth-service</pro.service.name>
+    </properties>
+
+    <profiles>
+        <!--local development environment -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <config.profile.name>${dev.config.profile.name}</config.profile.name>
+                <service.name>${dev.service.name}</service.name>
+                <envzone.name>local</envzone.name>
+            </properties>
+        </profile>
+        <!--production environment -->
+        <profile>
+            <id>pro</id>
+            <properties>
+                <config.profile.name>${pro.config.profile.name}</config.profile.name>
+                <service.name>${pro.service.name}</service.name>
+                <envzone.name>pro</envzone.name>
+            </properties>
+        </profile>
+
+    </profiles>
 
     <build>
         <plugins>
