@@ -34,6 +34,7 @@
       <module>cloud-config-server</module>
       <module>cloud-eureka-server</module>
       <module>cloud-zuul-server</module>
+      <module>common-tools</module>
       <module>rbac-service</module>
       <module>auth-service</module>
       <module>cms-service</module>

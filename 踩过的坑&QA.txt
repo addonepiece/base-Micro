@@ -19,6 +19,8 @@
 project的libararies中存在的jar，module中确不能用。
     file->project structure->modules->dependencies 将需要的jar包应用到module中。
 
+pom文件不报错，但是不生效可能是<artifactId>${service.name}</artifactId>中使用了变量。
+
 
 
 

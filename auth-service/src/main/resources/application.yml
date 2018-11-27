@@ -6,7 +6,7 @@ spring:
     # 服务与服务之间相互调用一般都是根据这个name 。
     name: auth-service
   datasource:
-    url: jdbc:mysql://47.99.211.9:3306/test?useSSL=false
+    url: jdbc:mysql://47.99.211.9:3306:3306/auth?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
