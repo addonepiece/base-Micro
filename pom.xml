@@ -109,11 +109,11 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- 数据库连接池 -->
+    <!-- 数据库连springboot2+默认使用的是HikariCP -->
     <dependency>
-      <groupId>com.zaxxer</groupId>
-      <artifactId>HikariCP</artifactId>
-      <version>3.2.0</version>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <version>2.0.3.RELEASE</version>
     </dependency>
 
     <!-- 分页插件 -->
@@ -121,6 +121,11 @@
       <groupId>com.github.pagehelper</groupId>
       <artifactId>pagehelper-spring-boot-starter</artifactId>
       <version>1.2.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
     </dependency>
 
   </dependencies>
