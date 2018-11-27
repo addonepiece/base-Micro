@@ -13,14 +13,11 @@
                                                        <relativePath>../pom.xml</relativePath>
                                                    </parent>
 
+依赖包下载到了maven仓库但是没有加载到libraries中。
+    reimport 或 invalidate and resstart 或 统一编码 或 删除target下所有文件后重新build，即重新编译代码。
 
-
-
-
-
-
-
-
+project的libararies中存在的jar，module中确不能用。
+    file->project structure->modules->dependencies 将需要的jar包应用到module中。
 
 
 
