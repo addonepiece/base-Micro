@@ -62,7 +62,6 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <!-- 数据库连springboot2+默认使用的是HikariCP -->
