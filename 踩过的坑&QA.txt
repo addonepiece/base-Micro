@@ -21,6 +21,8 @@ project的libararies中存在的jar，module中确不能用。
 
 pom文件不报错，但是不生效可能是<artifactId>${service.name}</artifactId>中使用了变量。
 
+springboot2+ 数据源默认使用的是hikariPC 配置超级简单 1 引入相关依赖包 2 配置文件中配置datasource
+
 
 
 
