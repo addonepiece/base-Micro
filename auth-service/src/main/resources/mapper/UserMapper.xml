@@ -3,15 +3,8 @@
 <mapper namespace="com.dly.mapper.UserMapper">
     <!-- 增加用户表 -->
     <insert id="createUser" parameterType="com.dly.model.entity.User">
-		insert into user
-		(uuid,
-		account, user_name,
-		password, encryption, phone,email,
-		term, status,
-		last_login_ip,
-		last_login_time, operator, create_time,
-		remarks )
-		values
-		('12BF0K3GH2KVK003', 'xuj', 'lz管理员', '1222221', '18521516862', '1', '2018-11-15 13:51:26');
+
+insert into user   (uuid,   account, user_name,   password, phone, status, create_time )
+ values   ('12BF0K3GH2KVK003', 'xuj', 'lz管理员', '1222221', '18521516862', '1', '2018-11-15 13:51:26');
 	</insert>
 </mapper>
