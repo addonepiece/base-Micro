@@ -9,7 +9,6 @@ import java.security.NoSuchAlgorithmException;
 /**
  * ID生成器,用于生成ID
  *
- * @author dly
  */
 
 @FunctionalInterface
