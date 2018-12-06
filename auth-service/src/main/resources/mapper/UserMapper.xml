@@ -37,14 +37,14 @@
 		insert into user
 		(uuid,
 		account, user_name,
-		password, encryption, phone,email,
+		password, nickname, phone,email,
 		term, status,
 		last_login_ip,
 		last_login_time, operator, create_time,
 		remarks )
 		values
 		(#{uuid,jdbcType=VARCHAR},#{account,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},
-		#{password,jdbcType=VARCHAR},#{encryption,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},
 		#{term,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{lastLoginIp,jdbcType=VARCHAR},
 		#{lastLoginTime,jdbcType=VARCHAR},#{operator,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR},
 		#{remarks,jdbcType=VARCHAR})
@@ -59,8 +59,8 @@
 		user_name = #{userName,jdbcType=VARCHAR},
 		password =
 		#{password,jdbcType=VARCHAR},
-		encryption =
-		#{encryption,jdbcType=VARCHAR},
+		nickname =
+		#{nickname,jdbcType=VARCHAR},
 		phone = #{phone,jdbcType=VARCHAR},
 		term
 		= #{term,jdbcType=VARCHAR},

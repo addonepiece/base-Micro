@@ -36,6 +36,9 @@ public class User implements Serializable {
      */
     private String phone;
 
+    /**
+     * 电子邮件
+     */
     private String email;
 
     /**
