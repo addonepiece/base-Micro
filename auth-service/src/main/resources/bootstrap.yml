@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    config:
+      label: master
+      profile: @dev.config.profile.name@
+      uri: http://localhost:8763/
+      name: @project.name@
+
+#the suffix of service name on eureka
+envzone: @dev.config.profile.name@
