@@ -1,10 +1,155 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.dly.mapper.UserMapper">
-    <!-- 增加用户表 -->
-    <insert id="createUser" parameterType="com.dly.model.entity.User">
+  <resultMap id="BaseResultMap"
+             type="com.dly.model.vo.UserVo">
+    <id column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName"
+            jdbcType="VARCHAR" />
+    <result column="password" property="password"
+            jdbcType="VARCHAR" />
+    <result column="encryption" property="encryption"
+            jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="term" property="term" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="last_login_ip" property="lastLoginIp"
+            jdbcType="VARCHAR" />
+    <result column="last_login_time" property="lastLoginTime"
+            jdbcType="VARCHAR" />
+    <result column="operator" property="operator"
+            jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime"
+            jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
 
-insert into user   (uuid,   account, user_name,   password, phone, status, create_time )
- values   ('12BF0K3GH2KVK003', 'xuj', 'lz管理员', '1222221', '18521516862', '1', '2018-11-15 13:51:26');
+  <sql id="Base_Column_List">
+		uuid, account, user_name, password,
+		encryption, phone, term,
+		status, last_login_ip, last_login_time,
+		operator, create_time, remarks
+	</sql>
+
+  <!-- 增加用户表 -->
+  <insert id="create" parameterType="com.dly.model.entity.User">
+		insert into user
+		(uuid,
+		account, user_name,
+		password, encryption, phone,email,
+		term, status,
+		last_login_ip,
+		last_login_time, operator, create_time,
+		remarks )
+		values
+		(#{uuid,jdbcType=VARCHAR},#{account,jdbcType=VARCHAR},#{userName,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},#{encryption,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},
+		#{term,jdbcType=VARCHAR},#{status,jdbcType=VARCHAR},#{lastLoginIp,jdbcType=VARCHAR},
+		#{lastLoginTime,jdbcType=VARCHAR},#{operator,jdbcType=VARCHAR},#{createTime,jdbcType=VARCHAR},
+		#{remarks,jdbcType=VARCHAR})
 	</insert>
+
+  <!-- 修改用户表 -->
+  <update id="update"
+          parameterType="com.dly.model.filter.UserFilter">
+		update user
+		set
+		account = #{account,jdbcType=VARCHAR},
+		user_name = #{userName,jdbcType=VARCHAR},
+		password =
+		#{password,jdbcType=VARCHAR},
+		encryption =
+		#{encryption,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=VARCHAR},
+		term
+		= #{term,jdbcType=VARCHAR},
+		status = #{status,jdbcType=VARCHAR},
+		last_login_ip = #{lastLoginIp,jdbcType=VARCHAR},
+		last_login_time =
+		#{lastLoginTime,jdbcType=VARCHAR},
+		operator =
+		#{operator,jdbcType=VARCHAR},
+		create_time =
+		#{createTime,jdbcType=VARCHAR},
+		remarks = #{remarks,jdbcType=VARCHAR}
+		where uuid = #{uuid,jdbcType=VARCHAR}
+	</update>
+
+  <!-- 修改密码 -->
+  <update id="changePassword"
+          parameterType="com.dly.model.filter.UserFilter">
+		update user
+		set password =
+		#{newPassword,jdbcType=VARCHAR}
+		where password = #{password,jdbcType=VARCHAR}
+		and account = #{account,jdbcType=VARCHAR}
+	</update>
+
+  <!-- 通过邮箱修改密码 -->
+  <update id="resetPasswordByEmail"
+          parameterType="com.dly.model.filter.UserFilter">
+		update user
+		set password =
+		#{password,jdbcType=VARCHAR}
+		where email = #{email,jdbcType=VARCHAR}
+		and account = #{account,jdbcType=VARCHAR}
+	</update>
+
+  <!-- 通过短信验证码改密码 -->
+  <update id="resetPasswordByPhone"
+          parameterType="com.dly.model.filter.UserFilter">
+		update user
+		set password =
+		#{password,jdbcType=VARCHAR}
+		where phone = #{phone,jdbcType=VARCHAR}
+		and account = #{account,jdbcType=VARCHAR}
+	</update>
+
+  <!-- 激活邮箱用户 -->
+  <update id="activeEmailUser"
+          parameterType="java.lang.String">
+		update user
+		set
+		status = '1'
+		where email = #{email,jdbcType=VARCHAR}
+	</update>
+
+  <!-- 删除用户表 -->
+  <delete id="remove" parameterType="com.dly.model.entity.User">
+		delete from user
+		where uuid =
+		#{uuid,jdbcType=VARCHAR}
+	</delete>
+
+  <!-- 查询用户表 -->
+  <select id="retrieve" resultMap="BaseResultMap"
+          parameterType="com.dly.model.filter.UserFilter">
+    select
+    <include refid="Base_Column_List" />
+    from user
+    <where>
+      <!-- uuid -->
+      <if test="uuid != null and uuid != ''">
+        and uuid = #{uuid, jdbcType=VARCHAR}
+      </if>
+      <!-- 账号 -->
+      <if test="account != null and account != ''">
+        and account = #{account, jdbcType=VARCHAR}
+      </if>
+      <!-- phone -->
+      <if test="phone != null and phone != ''">
+        and phone = #{phone, jdbcType=VARCHAR}
+      </if>
+      <!-- email -->
+      <if test="email != null and email != ''">
+        and email = #{email, jdbcType=VARCHAR}
+      </if>
+      <!-- 密码 -->
+      <if test="password != null and password != ''">
+        and password = #{password, jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
 </mapper>
+

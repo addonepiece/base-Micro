@@ -10,6 +10,8 @@ import java.io.Serializable;
 public class ReqQuery<T> implements Serializable {
     private static final long serialVersionUID = 5306877151386123312L;
 
+    public static final long totalCount = 10000;
+
     // 分页信息，pageRow>0时分页取数据
     // 页大小
     private int pageRow = 0;
