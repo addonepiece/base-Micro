@@ -9,6 +9,7 @@ import dly.RESTful.ReqQuery;
 import dly.RESTful.ResList;
 import dly.exception.code.BasicErrCodes;
 import dly.id.IDGenerator;
+import dly.util.DateUtil;
 import dly.util.MD5;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,6 +44,7 @@ public class UserServiceImpl implements UserService {
 		String uuid = user.getUuid();
 		if (uuid == null || uuid.isEmpty()) {
 			user.setUuid(IDGenerator.UUID.generate());
+			user.setCreateTime(DateUtil.longDateTime());
 		}
 
 		try {

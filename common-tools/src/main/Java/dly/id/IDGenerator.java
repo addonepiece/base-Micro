@@ -18,7 +18,7 @@ public interface IDGenerator<T> {
     /**
      * 使用UUID生成id
      */
-    IDGenerator<String> UUID = () -> java.util.UUID.randomUUID().toString();
+    IDGenerator<String> UUID = () -> java.util.UUID.randomUUID().toString().replace("-", "");
 
     /**
      * 随机字符

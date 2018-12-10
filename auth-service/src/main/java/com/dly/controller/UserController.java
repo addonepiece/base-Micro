@@ -13,6 +13,7 @@ import dly.RESTful.ResList;
 import dly.RESTful.ResObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +32,7 @@ public class UserController {
     private UserService userService;
 
     // 增加用户表
-    @RequestMapping("/create")
+    @PostMapping(value = "/create")
     public ResObject<User> create(@RequestBody ReqObject<User> data, HttpServletRequest request,
                                   HttpServletResponse response) {
         try {

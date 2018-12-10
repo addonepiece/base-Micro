@@ -16,9 +16,6 @@ public class UserVo
 	// 账号
 	protected String account;
 
-	// 用户名
-	protected String userName;
-
 	// 密码
 	protected String password;
 

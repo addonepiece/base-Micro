@@ -31,7 +31,7 @@ public class MyZullFilter extends ZuulFilter {
         HttpServletRequest request = ctx.getRequest();
         System.out.println(String.format("%s >>> %s", request.getMethod(), request.getRequestURL().toString()));
         Object accessToken = request.getParameter("token");
-        if(accessToken == null) {
+        if(accessToken != null) {
             System.out.println(String.format("token is empty"));
             ctx.setSendZuulResponse(false);
             ctx.setResponseStatusCode(401);

@@ -10,9 +10,6 @@ public class UserFilter {
     // 账号
     protected String account;
 
-    // 用户名
-    protected String userName;
-
     // 密码
     protected String password;
 
@@ -52,10 +49,6 @@ public class UserFilter {
     public void validFilter() {
         if (account == null || account.isEmpty()) {
             throw BasicErrCodes.FILTER_IS_EMPTY.exception("account");
-        }
-
-        if (userName == null || userName.isEmpty()) {
-            throw BasicErrCodes.FILTER_IS_EMPTY.exception("userName");
         }
 
         if (password == null || password.isEmpty()) {
