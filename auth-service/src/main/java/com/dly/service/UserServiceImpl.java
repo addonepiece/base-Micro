@@ -10,7 +10,6 @@ import dly.RESTful.ResList;
 import dly.exception.code.BasicErrCodes;
 import dly.id.IDGenerator;
 import dly.util.DateUtil;
-import dly.util.MD5;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +35,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserMapper userMapper;
 
-	// 增加用户表
+	// 新增用户
 	@Override
-	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
 	public User create(ReqObject<User> data) {
 		User user = data.getObject();
 		String uuid = user.getUuid();
@@ -46,11 +45,13 @@ public class UserServiceImpl implements UserService {
 			user.setUuid(IDGenerator.UUID.generate());
 			user.setCreateTime(DateUtil.longDateTime());
 		}
-
+		// 验证必填项
+		user.validRequireItem();
 		try {
 			userMapper.create(user);
 		} catch (Exception e) {
 			String cause = e.getCause().toString();
+			// 重复条目
 			if (cause.contains("Duplicate entry")) {
 				throw BasicErrCodes.DAO_INSERT_DUPLICATE.exception(e);
 			} else {
@@ -61,34 +62,12 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	// 修改用户表
-	@Override
-	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
-	public UserFilter update(ReqObject<UserFilter> data) {
-		UserFilter filter = data.getObject();
-
-		userMapper.update(filter);
-		return filter;
-	}
-
-	// 删除用户表
-	@Override
-	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
-	public Integer remove(ReqObject<User> data) {
-		User user = data.getObject();
-		return userMapper.remove(user);
-	}
-
 	// 查询用户表
 	@Override
-	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
 	public ResList<UserVo> retrieve(ReqObject<ReqQuery<UserFilter>> filter) {
 		ReqQuery<UserFilter> query = filter.getObject();
 
 		UserFilter qry = query.getObject();
-		if (qry.getPassword() != null && !qry.getPassword().isEmpty()) {
-			qry.setPassword(MD5.getMessageDigest(qry.getPassword()));
-		}
 
 		ResList<UserVo> resList;
 
@@ -113,6 +92,24 @@ public class UserServiceImpl implements UserService {
 		}
 
 		return resList;
+	}
+
+	// 修改用户表
+	@Override
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
+	public UserFilter update(ReqObject<UserFilter> data) {
+		UserFilter filter = data.getObject();
+
+		userMapper.update(filter);
+		return filter;
+	}
+
+	// 删除用户表
+	@Override
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED, propagation = Propagation.REQUIRED)
+	public Integer remove(ReqObject<User> data) {
+		User user = data.getObject();
+		return userMapper.remove(user);
 	}
 
 }

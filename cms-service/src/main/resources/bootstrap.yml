@@ -2,9 +2,9 @@ spring:
   cloud:
     config:
       label: master
-      profile: dev
+      profile: @dev.config.profile.name@
       uri: http://localhost:8763/
-      name: cms-service
+      name: @project.name@
 
-envzone: dev
+envzone: @dev.config.profile.name@
 

@@ -1,5 +1,7 @@
 package com.dly.model.entity;
 
+import dly.exception.code.BasicErrCodes;
+import dly.exception.code.ProjectErrorCode;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -76,6 +78,24 @@ public class User implements Serializable {
      */
     private String remarks;
 
+
+    public void validRequireItem() {
+        if (uuid == null || uuid.isEmpty()) {
+            throw BasicErrCodes.FILTER_IS_EMPTY.exception("uuid");
+        }
+
+        if (account == null || account.isEmpty()) {
+            throw BasicErrCodes.FILTER_IS_EMPTY.exception("account");
+        }
+
+        if (password == null || password.isEmpty()) {
+            throw BasicErrCodes.FILTER_IS_EMPTY.exception("password");
+        }
+
+        if (createTime == null || createTime.isEmpty()) {
+            throw BasicErrCodes.FILTER_IS_EMPTY.exception("createTime");
+        }
+    }
 
     @Override
     public boolean equals(Object that) {
