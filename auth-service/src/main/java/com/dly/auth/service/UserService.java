@@ -1,9 +1,9 @@
-package com.dly.service;
+package com.dly.auth.service;
 
 
-import com.dly.model.entity.User;
-import com.dly.model.filter.UserFilter;
-import com.dly.model.vo.UserVo;
+import com.dly.auth.model.entity.User;
+import com.dly.auth.model.filter.UserFilter;
+import com.dly.auth.model.vo.UserVo;
 import dly.RESTful.ReqObject;
 import dly.RESTful.ReqQuery;
 import dly.RESTful.ResList;

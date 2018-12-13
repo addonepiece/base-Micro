@@ -1,4 +1,4 @@
-package com.dly.model.entity;
+package com.dly.auth.model.entity;
 
 import java.io.Serializable;
 

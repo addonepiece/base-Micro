@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.dly.mapper.UserMapper">
+<mapper namespace="com.dly.auth.mapper.UserMapper">
     <resultMap id="BaseResultMap"
-               type="com.dly.model.vo.UserVo">
+               type="com.dly.auth.model.vo.UserVo">
         <id column="uuid" property="uuid" jdbcType="VARCHAR"/>
         <result column="account" property="account" jdbcType="VARCHAR"/>
         <result column="password" property="password"
@@ -30,7 +30,7 @@
 	</sql>
 
     <!-- 增加用户表 -->
-    <insert id="create" parameterType="com.dly.model.entity.User">
+    <insert id="create" parameterType="com.dly.auth.model.entity.User">
 		insert into user
 		(uuid,
 		account,
@@ -49,7 +49,7 @@
 
     <!-- 修改用户表 -->
     <update id="update"
-            parameterType="com.dly.model.filter.UserFilter">
+            parameterType="com.dly.auth.model.filter.UserFilter">
 		update user
 		set
 		account = #{account,jdbcType=VARCHAR},
@@ -74,7 +74,7 @@
 
     <!-- 修改密码 -->
     <update id="changePassword"
-            parameterType="com.dly.model.filter.UserFilter">
+            parameterType="com.dly.auth.model.filter.UserFilter">
 		update user
 		set password =
 		#{newPassword,jdbcType=VARCHAR}
@@ -84,7 +84,7 @@
 
     <!-- 通过邮箱修改密码 -->
     <update id="resetPasswordByEmail"
-            parameterType="com.dly.model.filter.UserFilter">
+            parameterType="com.dly.auth.model.filter.UserFilter">
 		update user
 		set password =
 		#{password,jdbcType=VARCHAR}
@@ -94,7 +94,7 @@
 
     <!-- 通过短信验证码改密码 -->
     <update id="resetPasswordByPhone"
-            parameterType="com.dly.model.filter.UserFilter">
+            parameterType="com.dly.auth.model.filter.UserFilter">
 		update user
 		set password =
 		#{password,jdbcType=VARCHAR}
@@ -112,7 +112,7 @@
 	</update>
 
     <!-- 删除用户表 -->
-    <delete id="remove" parameterType="com.dly.model.entity.User">
+    <delete id="remove" parameterType="com.dly.auth.model.entity.User">
 		delete from user
 		where uuid =
 		#{uuid,jdbcType=VARCHAR}
@@ -120,7 +120,7 @@
 
     <!-- 查询用户表 -->
     <select id="retrieve" resultMap="BaseResultMap"
-            parameterType="com.dly.model.filter.UserFilter">
+            parameterType="com.dly.auth.model.filter.UserFilter">
         select
         <include refid="Base_Column_List"/>
         from user

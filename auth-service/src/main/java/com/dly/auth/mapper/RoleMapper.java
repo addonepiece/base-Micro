@@ -1,7 +1,8 @@
-package com.dly.mapper;
+package com.dly.auth.mapper;
 
-import com.dly.model.entity.Role;
-import com.dly.model.filter.RoleFilter;
+import com.dly.auth.model.filter.RoleFilter;
+import com.dly.auth.model.entity.Role;
+
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

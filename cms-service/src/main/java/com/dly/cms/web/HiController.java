@@ -1,6 +1,6 @@
-package com.dly.web;
+package com.dly.cms.web;
 
-import com.dly.crossservice.ScheduleAuth;
+import com.dly.cms.crossservice.ScheduleAuth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

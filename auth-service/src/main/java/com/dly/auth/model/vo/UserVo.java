@@ -1,4 +1,4 @@
-package com.dly.model.vo;
+package com.dly.auth.model.vo;
 
 import lombok.Data;
 

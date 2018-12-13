@@ -1,7 +1,7 @@
-package com.dly.crossservice;
+package com.dly.cms.crossservice;
 
 
-import com.dly.hystric.ScheduleAuthHystric;
+import com.dly.cms.hystric.ScheduleAuthHystric;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

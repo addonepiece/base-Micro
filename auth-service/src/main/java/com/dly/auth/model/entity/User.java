@@ -1,7 +1,6 @@
-package com.dly.model.entity;
+package com.dly.auth.model.entity;
 
 import dly.exception.code.BasicErrCodes;
-import dly.exception.code.ProjectErrorCode;
 import lombok.Data;
 
 import java.io.Serializable;

@@ -1,8 +1,8 @@
-package com.dly.mapper;
+package com.dly.auth.mapper;
 
-import com.dly.model.entity.User;
-import com.dly.model.filter.UserFilter;
-import com.dly.model.vo.UserVo;
+import com.dly.auth.model.entity.User;
+import com.dly.auth.model.filter.UserFilter;
+import com.dly.auth.model.vo.UserVo;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

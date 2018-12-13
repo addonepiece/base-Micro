@@ -1,4 +1,4 @@
-package com.dly.model.filter;
+package com.dly.auth.model.filter;
 
 import java.util.ArrayList;
 import java.util.List;

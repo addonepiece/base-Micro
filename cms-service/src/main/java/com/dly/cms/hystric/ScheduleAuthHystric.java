@@ -1,6 +1,6 @@
-package com.dly.hystric;
+package com.dly.cms.hystric;
 
-import com.dly.crossservice.ScheduleAuth;
+import com.dly.cms.crossservice.ScheduleAuth;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -8,7 +8,7 @@
 #
 #spring:
 #  application:
-#    name: cms-service
+#    name: cms-service-dev
 #  datasource:
 #    url: jdbc:mysql://47.99.211.9:3306/auth?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
 #    username: ENC(Q+Pn4LhPX8OZaLFS6EuoEg==)
@@ -23,6 +23,9 @@
 #      pool-name: DatebookHikariCP
 #      max-lifetime: 1800000
 #      connection-timeout: 30000
+#
+#mybatis:
+#  mapper-locations: classpath:/mapper/*
 #
 #jasypt:
 #  encryptor:
