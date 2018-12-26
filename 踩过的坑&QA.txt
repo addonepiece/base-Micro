@@ -77,3 +77,11 @@ Q&A
 
     Hystric dashboard依赖包问题，新版的springboot 更新的比较快，很多三方包的使用和更新可能会存在问题，通过网上查找和
     换成其他版本的依赖包测试，哪个好用留哪个。
+
+
+
+ 难点（微服务的挑战）
+    权限控制和服务间的权限认证（准备采用spring security结合Oauth2来实现）
+    跨域问题（参照 https://www.jianshu.com/p/f880878c1398）
+
+

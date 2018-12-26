@@ -45,12 +45,12 @@ public class User implements Serializable {
     /**
      * 终端类型
      */
-    private Short term;
+    private String term;
 
     /**
      * 状态
      */
-    private Short status;
+    private String status;
 
     /**
      * 上一次登录的ip地址
