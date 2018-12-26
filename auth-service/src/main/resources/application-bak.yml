@@ -1,0 +1,74 @@
+server:
+  port: 1885
+
+spring:
+  application:
+    # 服务与服务之间相互调用一般都是根据这个name 。
+    name: auth-service-dev
+  datasource:
+    url: jdbc:mysql://47.99.211.9:3306/auth?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    username: ENC(Q+Pn4LhPX8OZaLFS6EuoEg==)
+    password: ENC(Q+Pn4LhPX8OZaLFS6EuoEg==)
+    driver-class-name: com.mysql.jdbc.Driver
+    #    springboot2.0+默认为hikari 此配置项可删除
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 3
+      auto-commit: true
+      idle-timeout: 10000
+      pool-name: DatebookHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+
+  #redis
+  redis:
+    #redis机器ip
+    hostname: 47.99.211.9
+    #redis端口
+    port: 6379
+    #redis密码
+    password: ENC(Q+Pn4LhPX8OZaLFS6EuoEg==)
+    #redis超时时间（毫秒），如果不设置，取默认值2000
+    timeout: 10000
+    #最大空闲数
+    maxIdle: 300
+    #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用redis.maxTotal
+    #maxActive=600
+    #控制一个pool可分配多少个jedis实例,用来替换上面的redis.maxActive,如果是jedis 2.4以后用该属性
+    maxTotal: 1000
+    #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+    maxWaitMillis: 1000
+    #连接的最小空闲时间 默认1800000毫秒(30分钟)
+    minEvictableIdleTimeMillis: 300000
+    #每次释放连接的最大数目,默认3
+    numTestsPerEvictionRun: 1024
+    #逐出扫描的时间间隔(毫秒) 如果为负数,则不运行逐出线程, 默认-1
+    timeBetweenEvictionRunsMillis: 30000
+    #是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个
+    testOnBorrow: true
+    #在空闲时检查有效性, 默认false
+    testWhileIdle: true
+
+    #redis集群配置
+    #spring.cluster.nodes=192.168.1.1:7001,192.168.1.1:7002,192.168.1.1:7003,192.168.1.1:7004,192.168.1.1:7005,192.168.1.1:7006
+    #spring.cluster.max-redirects=3
+
+    #哨兵模式
+    #sentinel.host1=192.168.1.1
+    #sentinel.port1=26379
+
+    #sentinel.host2=192.168.1.2
+    #sentinel.port2=26379
+
+mybatis:
+  mapper-locations: classpath:/mapper/*
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+jasypt:
+  encryptor:
+    #    加解密的时候使用的密钥(密码盐)
+    password: 123456

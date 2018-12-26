@@ -33,7 +33,7 @@ public class AccountController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/checkAccount")
+    @PostMapping("/checkAccount")
     public ResObject<Boolean> checkAccount(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
                                            HttpServletResponse response) {
         try {
@@ -45,12 +45,24 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/checkPhone")
+    @PostMapping("/checkPhone")
     public ResObject<Boolean> checkPhone(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
                                          HttpServletResponse response) {
         try {
             String phone = reqObject.getObject();
             boolean result = accountService.checkPhone(phone);
+            return new ResObject<Boolean>(reqObject, result);
+        } catch (Exception e) {
+            return new ResObject<Boolean>(reqObject, e);
+        }
+    }
+
+    @PostMapping("/checkEmail")
+    public ResObject<Boolean> checkEmail(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
+                                         HttpServletResponse response) {
+        try {
+            String email = reqObject.getObject();
+            boolean result = accountService.checkEmail(email);
             return new ResObject<Boolean>(reqObject, result);
         } catch (Exception e) {
             return new ResObject<Boolean>(reqObject, e);
@@ -92,18 +104,6 @@ public class AccountController {
             return new ResObject<User>(reqObject, user);
         } catch (Exception e) {
             return new ResObject<User>(reqObject, e);
-        }
-    }
-
-    @RequestMapping("/checkEmail")
-    public ResObject<Boolean> checkEmail(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
-                                         HttpServletResponse response) {
-        try {
-            String email = reqObject.getObject();
-            boolean result = accountService.checkEmail(email);
-            return new ResObject<Boolean>(reqObject, result);
-        } catch (Exception e) {
-            return new ResObject<Boolean>(reqObject, e);
         }
     }
 
