@@ -191,7 +191,7 @@ public class AccountServiceImpl implements AccountService {
 
         mailSendInfo.setSubject("标题");
         mailSendInfo.setToEmail(user.getEmail());
-        mailSendInfo.setContent("尊敬的用户" + ":<br/>请点<a href='http://192.168.7.124:1505/account/activeEmailUser?email="
+        mailSendInfo.setContent("尊敬的用户" + ":<br/>请点<a href='http://47.99.211.9:1505/account/activeEmailUser?email="
                 + user.getEmail() + "&code=" + DateUtil.longDateTime() + "'>【激活账号】</a><br/>激活您的账号，激活后将自动跳转至登录页面。谢谢！");
 
         // 发送邮件,单独启动一个线程
@@ -313,7 +313,7 @@ public class AccountServiceImpl implements AccountService {
         user.setPhone(data.getPhone());
         user.setEmail(data.getEmail());
         user.setTerm(data.getTerm());
-        user.setNickname(data.getNikeName());
+        user.setNickname(data.getNickname());
         user.setUuid(IDGenerator.UUID.generate());
         user.setStatus("1");
         return user;

@@ -23,7 +23,7 @@ public class RegisterData {
 
     protected String account;
 
-    protected String nikeName;
+    protected String nickname;
 
     protected String password;
 

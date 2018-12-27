@@ -2,13 +2,11 @@ package com.dly.auth.model.filter;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
 @Data
 @Slf4j
-@Component
 public class MailSendInfo {
     private Properties properties;
     // 发件箱

@@ -13,30 +13,40 @@
                                                        <relativePath>../pom.xml</relativePath>
                                                    </parent>
 
-依赖包下载到了maven仓库但是没有加载到libraries中。
-    reimport 或 invalidate and resstart 或 统一编码 或 删除target下所有文件后重新build，即重新编译代码。
+        依赖包下载到了maven仓库但是没有加载到libraries中。
+            reimport 或 invalidate and resstart 或 统一编码 或 删除target下所有文件后重新build，即重新编译代码。
 
-project的libararies中存在的jar，module中确不能用。
-    file->project structure->modules->dependencies 将需要的jar包应用到module中。
+        project的libararies中存在的jar，module中确不能用。
+            file->project structure->modules->dependencies 将需要的jar包应用到module中。
 
-pom文件不报错，但是不生效可能是<artifactId>${service.name}</artifactId>中使用了变量。
+        pom文件不报错，但是不生效可能是<artifactId>${service.name}</artifactId>中使用了变量。
 
-bootstrap.yml 中无法使用@xxx@ 表达式肯能是应为 pom文件中未加入
-    <build>
-            <resources>
-                <resource>
-                    <directory>src/main/resources</directory>
-                    <includes>
-                        <include>**/*.properties</include>
-                        <include>**/*.yml</include>
-                        <include>**/*.xml</include>
-                        <include>**/*.json</include>
-                    </includes>
-                    <filtering>true</filtering>
-                </resource>
-            </resources>
+        bootstrap.yml 中无法使用@xxx@ 表达式肯能是应为 pom文件中未加入
+            <build>
+                    <resources>
+                        <resource>
+                            <directory>src/main/resources</directory>
+                            <includes>
+                                <include>**/*.properties</include>
+                                <include>**/*.yml</include>
+                                <include>**/*.xml</include>
+                                <include>**/*.json</include>
+                            </includes>
+                            <filtering>true</filtering>
+                        </resource>
+                    </resources>
 
-springboot2+ 数据源默认使用的是hikariPC 配置超级简单 1 引入相关依赖包 2 配置文件中配置datasource
+    4.redis集成
+        需要选择连接方式如jedis，Lettuce，redis需要自行配置才能成功初始化到bean容器。
+        Lettuce和Jedis的都是连接Redis Server的客户端程序。Jedis在实现上是直连redis server，
+        多线程环境下非线程安全，除非使用连接池，为每个Jedis实例增加物理连接。
+        Lettuce基于Netty的连接实例（StatefulRedisConnection），可以在多个线程间并发访问，且线程安全，
+        满足多线程环境下的并发访问，同时它是可伸缩的设计，一个连接实例不够的情况也可以按需增加连接实例。
+
+        实际使用redis存取数据时需要自定义序列化策略。
+
+     5.hikari
+        springboot2+ 数据源默认使用的是hikariPC 配置超级简单 1 引入相关依赖包 2 配置文件中配置datasource
 
 
 

@@ -45,7 +45,7 @@ public class SendMailThread extends Thread {
             System.out.println(mailSendInfo.getContent());
             // 发送消息
             Transport.send(message);
-            System.out.println("Sent message successfully....from lz.com");
+            System.out.println("Sent message successfully....from dly.com");
         } catch (MessagingException mex) {
             mex.printStackTrace();
         }

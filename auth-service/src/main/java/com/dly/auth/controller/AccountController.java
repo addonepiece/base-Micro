@@ -33,6 +33,7 @@ public class AccountController {
     @Autowired
     UserService userService;
 
+    // 检查账号是否存在
     @PostMapping("/checkAccount")
     public ResObject<Boolean> checkAccount(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
                                            HttpServletResponse response) {
@@ -45,6 +46,7 @@ public class AccountController {
         }
     }
 
+    // 检查手机号是否存在
     @PostMapping("/checkPhone")
     public ResObject<Boolean> checkPhone(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
                                          HttpServletResponse response) {
@@ -57,6 +59,7 @@ public class AccountController {
         }
     }
 
+    // 检查电子邮箱是否存在
     @PostMapping("/checkEmail")
     public ResObject<Boolean> checkEmail(@RequestBody ReqObject<String> reqObject, HttpServletRequest request,
                                          HttpServletResponse response) {
@@ -69,7 +72,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/getMsgCode")
+    // 获取手机验证码
+    @PostMapping("/getMsgCode")
     public ResObject<String> getMsgCode(@RequestBody ReqObject<RegisterData> data, HttpServletRequest request,
                                         HttpServletResponse response) {
         try {
@@ -82,7 +86,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/validateMsgCode")
+    // 验证手机验证码
+    @PostMapping("/validateMsgCode")
     public ResObject<Boolean> verRegisterCode(@RequestBody ReqObject<RegisterData> reqObject,
                                               HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -95,7 +100,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/registerUser")
+    // 手机号注册
+    @PostMapping("/registerUser")
     public ResObject<User> registerUser(@RequestBody ReqObject<RegisterData> reqObject, HttpServletRequest request,
                                         HttpServletResponse response) {
         try {
@@ -107,7 +113,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/getCodeByEmail")
+    // 获取邮箱验证码
+    @PostMapping("/getCodeByEmail")
     public ResObject<String> getCodeByEmail(@RequestBody ReqObject<RegisterData> data, HttpServletRequest request,
                                             HttpServletResponse response) {
         try {
@@ -120,7 +127,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/registerEmailUser")
+    // 注册邮箱用户
+    @PostMapping("/registerEmailUser")
     public ResObject<User> registerEmailUser(@RequestBody ReqObject<RegisterData> reqObject, HttpServletRequest request,
                                              HttpServletResponse response) {
         try {
@@ -132,6 +140,7 @@ public class AccountController {
         }
     }
 
+    // 激活邮件激活用户
     @GetMapping("/activeEmailUser")
     // http://localhost:1505/account/activeEmailUser?email=yan.xinrong@icerno.com&code=2018-11-08 11:48:16
     public void registerEmailUser(@RequestParam String email, @RequestParam String code, HttpServletRequest request,
@@ -141,7 +150,7 @@ public class AccountController {
         map.put("code", code);
         // 激活账号
         accountService.activeEmailUser(map);
-        String url = "http://manager-cs.xilaikd.com/xilai.html?href=xilai/dataCenter/OperateLogPage/?fromDashboard=true";
+        String url = "https://github.com/addonepiece";
         try {
             response.reset();
             response.sendRedirect(url);
@@ -151,7 +160,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/resetPassword")
+    // 通过手机号码重置密码
+    @PostMapping("/resetPassword")
     public ResObject<UserFilter> resetPassword(@RequestBody ReqObject<RegisterData> reqObject,
                                                HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -164,7 +174,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/resetPasswordByEmail")
+    // 通过电子邮箱重置密码
+    @PostMapping("/resetPasswordByEmail")
     public ResObject<UserFilter> resetPasswordByEmail(@RequestBody ReqObject<RegisterData> reqObject,
                                                       HttpServletRequest request, HttpServletResponse response) {
         try {
@@ -177,7 +188,8 @@ public class AccountController {
         }
     }
 
-    @RequestMapping("/changePassword")
+    // 修改密码（知道原始密码）
+    @PostMapping("/changePassword")
     public ResObject<UserFilter> changePassword(@RequestBody ReqObject<RegisterData> reqObject,
                                                 HttpServletRequest request, HttpServletResponse response) {
         try {
