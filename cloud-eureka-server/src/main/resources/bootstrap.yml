@@ -2,9 +2,9 @@ spring:
   cloud:
     config:
       label: master
-      profile: dev
+      profile: @dev.config.profile.name@
       uri: http://localhost:8763/
-      name: cloud-eureka-server
+      name: @project.name@
 
-envzone: dev
-
+#the suffix of service name on eureka
+envzone: @dev.config.profile.name@

@@ -18,6 +18,40 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <properties>
+        <!--development environment -->
+        <dev.config.profile.name>dev</dev.config.profile.name>
+        <dev.service.name>cloud-zuul-server-dev</dev.service.name>
+        <!--production environment -->
+        <pro.config.profile.name>pro</pro.config.profile.name>
+        <pro.service.name>cloud-zuul-server</pro.service.name>
+    </properties>
+
+    <profiles>
+        <!--local development environment -->
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <config.profile.name>${dev.config.profile.name}</config.profile.name>
+                <service.name>${dev.service.name}</service.name>
+                <envzone.name>local</envzone.name>
+            </properties>
+        </profile>
+        <!--production environment -->
+        <profile>
+            <id>pro</id>
+            <properties>
+                <config.profile.name>${pro.config.profile.name}</config.profile.name>
+                <service.name>${pro.service.name}</service.name>
+                <envzone.name>pro</envzone.name>
+            </properties>
+        </profile>
+
+    </profiles>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -26,6 +60,19 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.yml</include>
+                    <include>**/*.xml</include>
+                    <include>**/*.json</include>
+                </includes>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
