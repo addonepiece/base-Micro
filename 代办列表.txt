@@ -1,6 +1,6 @@
 1.将RedisService 移动到commontool module下，这样其它模块也可以调用
 
-2.规范已有接口请求方式，向Restfull风格靠近
+2.规范已有接口请求方式，向Restfull风格靠近（需要持续改进）
 
 3.spring security 和oauth2 的集成以实现权限控制和服务认证
 
@@ -8,4 +8,6 @@
 
 5.做个excel导出的例子
 
-6.父工程各模块的maven依赖梳理和调整
+6.父工程各模块的maven依赖梳理和调整（完成）
+
+7.数据字典表设计和CRUD实现

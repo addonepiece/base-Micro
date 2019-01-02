@@ -2,7 +2,9 @@ spring:
   cloud:
     config:
       label: master
+#      profile: defalut
       profile: @dev.config.profile.name@
+#      uri: http://47.99.211.9:8763/
       uri: http://localhost:8763/
       name: @project.name@
 
