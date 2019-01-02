@@ -1,8 +1,8 @@
 package com.dly.auth.constant;
 
 
-import dly.exception.code.ProjectErrorCode;
-import dly.exception.code.ProjectErrorCodeOneArg;
+import com.dly.exception.code.ProjectErrorCode;
+import com.dly.exception.code.ProjectErrorCodeOneArg;
 
 public class ErrMsgConstant {
     public static final ProjectErrorCodeOneArg PROMPT = new ProjectErrorCodeOneArg("10000", "{0}");

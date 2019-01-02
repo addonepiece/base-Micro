@@ -29,7 +29,7 @@ public class AuthServiceApplication {
     String port;
 
     @GetMapping("/hi")
-    public String home(@RequestParam(value = "name", defaultValue = "dly") String name) {
+    public String home(@RequestParam(value = "name", defaultValue = "com/dly") String name) {
         return "hi " + name + " ,i am from port:" + port;
     }
 }

@@ -1,6 +1,6 @@
 package com.dly.auth.model.filter;
 
-import dly.exception.code.BasicErrCodes;
+import com.dly.exception.code.BasicErrCodes;
 import lombok.Data;
 
 @Data

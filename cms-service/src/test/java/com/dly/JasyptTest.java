@@ -16,6 +16,6 @@ public class JasyptTest {
     @Test
     public void encryptPwd() {
         String result = stringEncryptor.encrypt("root");
-        System.out.println(result + "dly");
+        System.out.println(result + "com/dly");
     }
 }

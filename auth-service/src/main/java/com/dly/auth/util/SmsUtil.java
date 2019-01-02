@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 
 import com.dly.auth.emums.SmsType;
 import com.dly.auth.constant.ErrMsgConstant;
-import com.dly.auth.redis.RedisService;
+import com.dly.redis.RedisService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
