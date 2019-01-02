@@ -45,10 +45,10 @@
 
         实际使用redis存取数据时需要自定义序列化策略。
 
-     5.hikari
+    5.hikari
         springboot2+ 数据源默认使用的是hikariPC 配置超级简单 1 引入相关依赖包 2 配置文件中配置datasource
 
-     6.idea maven打包项目时遇到的问题
+    6.idea maven打包项目时遇到的问题
         1. <packaging>pom</packaging>不同时注意要使用正确的maven plugin
         2. 使用spring boot maven plugin时，项目或模块中只能有一个main入口，如果有多个则需要指定真正的main入口。
         3. 如果项目或模块中有test用class则可能需要使用maven-surefire-plugin插件testFailureIgnore>true</testFailureIgnore>
@@ -64,7 +64,8 @@
            让子项目中引用一个依赖而不用显示的列出版本号。Maven会沿着父子层次向上走，直到找到一个拥有dependencyManagement元素的项目，
            然后它就会使用在这个dependencyManagement元素中指定的版本号。
 
-
+    7.跨模块注入时 被注入的类的包名要和需要注入的类的包名一致，如果不一致需要在启动类指定@SpringBootApplictaion（scanBasePackages="com.example"）
+        终极原因就是被注入类由于包名问题没被扫描到
 
 
 
