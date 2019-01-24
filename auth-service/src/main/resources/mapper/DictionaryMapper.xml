@@ -1,117 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dly.auth.mapper.DictionaryMapper">
-  <resultMap id="BaseResultMap" type="com.dly.auth.model.entity.Dictionary">
-    <id column="uuid" jdbcType="VARCHAR" property="uuid" />
-    <result column="dic_id" jdbcType="INTEGER" property="dicId" />
-    <result column="dic_name" jdbcType="VARCHAR" property="dicName" />
-    <result column="dic_itm" jdbcType="INTEGER" property="dicItm" />
-    <result column="dic_itm_name" jdbcType="VARCHAR" property="dicItmName" />
-    <result column="dic_sort" jdbcType="INTEGER" property="dicSort" />
-    <result column="active" jdbcType="CHAR" property="active" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    uuid, dic_id, dic_name, dic_itm, dic_itm_name, dic_sort, active
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from dictionary
-    where uuid = #{uuid,jdbcType=VARCHAR}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from dictionary
-    where uuid = #{uuid,jdbcType=VARCHAR}
-  </delete>
-  <insert id="insert" parameterType="com.dly.auth.model.entity.Dictionary">
-    insert into dictionary (uuid, dic_id, dic_name, 
-      dic_itm, dic_itm_name, dic_sort, 
-      active)
-    values (#{uuid,jdbcType=VARCHAR}, #{dicId,jdbcType=INTEGER}, #{dicName,jdbcType=VARCHAR}, 
-      #{dicItm,jdbcType=INTEGER}, #{dicItmName,jdbcType=VARCHAR}, #{dicSort,jdbcType=INTEGER}, 
-      #{active,jdbcType=CHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.dly.auth.model.entity.Dictionary">
-    insert into dictionary
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="uuid != null">
-        uuid,
-      </if>
-      <if test="dicId != null">
-        dic_id,
-      </if>
-      <if test="dicName != null">
-        dic_name,
-      </if>
-      <if test="dicItm != null">
-        dic_itm,
-      </if>
-      <if test="dicItmName != null">
-        dic_itm_name,
-      </if>
-      <if test="dicSort != null">
-        dic_sort,
-      </if>
-      <if test="active != null">
-        active,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="uuid != null">
-        #{uuid,jdbcType=VARCHAR},
-      </if>
-      <if test="dicId != null">
-        #{dicId,jdbcType=INTEGER},
-      </if>
-      <if test="dicName != null">
-        #{dicName,jdbcType=VARCHAR},
-      </if>
-      <if test="dicItm != null">
-        #{dicItm,jdbcType=INTEGER},
-      </if>
-      <if test="dicItmName != null">
-        #{dicItmName,jdbcType=VARCHAR},
-      </if>
-      <if test="dicSort != null">
-        #{dicSort,jdbcType=INTEGER},
-      </if>
-      <if test="active != null">
-        #{active,jdbcType=CHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.dly.auth.model.entity.Dictionary">
-    update dictionary
-    <set>
-      <if test="dicId != null">
+    <resultMap id="BaseResultMap" type="com.dly.auth.model.entity.Dictionary">
+        <id column="uuid" jdbcType="VARCHAR" property="uuid"/>
+        <result column="dic_id" jdbcType="INTEGER" property="dicId"/>
+        <result column="dic_name" jdbcType="VARCHAR" property="dicName"/>
+        <result column="dic_itm" jdbcType="INTEGER" property="dicItm"/>
+        <result column="dic_itm_name" jdbcType="VARCHAR" property="dicItmName"/>
+        <result column="dic_sort" jdbcType="INTEGER" property="dicSort"/>
+        <result column="active" jdbcType="CHAR" property="active"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+      uuid, dic_id, dic_name, dic_itm, dic_itm_name, dic_sort, active
+    </sql>
+
+    <!--查询全部数据字典类型-->
+    <select id="getAllDictionaryTypes" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from dictionary
+    </select>
+
+    <!--auto gennerator-->
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from dictionary
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+      delete from dictionary
+      where uuid = #{uuid,jdbcType=VARCHAR}
+    </delete>
+
+    <insert id="insert" parameterType="com.dly.auth.model.entity.Dictionary">
+      insert into dictionary (uuid, dic_id, dic_name,
+        dic_itm, dic_itm_name, dic_sort,
+        active)
+      values (#{uuid,jdbcType=VARCHAR}, #{dicId,jdbcType=INTEGER}, #{dicName,jdbcType=VARCHAR},
+        #{dicItm,jdbcType=INTEGER}, #{dicItmName,jdbcType=VARCHAR}, #{dicSort,jdbcType=INTEGER},
+        #{active,jdbcType=CHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.dly.auth.model.entity.Dictionary">
+        insert into dictionary
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                uuid,
+            </if>
+            <if test="dicId != null">
+                dic_id,
+            </if>
+            <if test="dicName != null">
+                dic_name,
+            </if>
+            <if test="dicItm != null">
+                dic_itm,
+            </if>
+            <if test="dicItmName != null">
+                dic_itm_name,
+            </if>
+            <if test="dicSort != null">
+                dic_sort,
+            </if>
+            <if test="active != null">
+                active,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="uuid != null">
+                #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="dicId != null">
+                #{dicId,jdbcType=INTEGER},
+            </if>
+            <if test="dicName != null">
+                #{dicName,jdbcType=VARCHAR},
+            </if>
+            <if test="dicItm != null">
+                #{dicItm,jdbcType=INTEGER},
+            </if>
+            <if test="dicItmName != null">
+                #{dicItmName,jdbcType=VARCHAR},
+            </if>
+            <if test="dicSort != null">
+                #{dicSort,jdbcType=INTEGER},
+            </if>
+            <if test="active != null">
+                #{active,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.dly.auth.model.entity.Dictionary">
+        update dictionary
+        <set>
+            <if test="dicId != null">
+                dic_id = #{dicId,jdbcType=INTEGER},
+            </if>
+            <if test="dicName != null">
+                dic_name = #{dicName,jdbcType=VARCHAR},
+            </if>
+            <if test="dicItm != null">
+                dic_itm = #{dicItm,jdbcType=INTEGER},
+            </if>
+            <if test="dicItmName != null">
+                dic_itm_name = #{dicItmName,jdbcType=VARCHAR},
+            </if>
+            <if test="dicSort != null">
+                dic_sort = #{dicSort,jdbcType=INTEGER},
+            </if>
+            <if test="active != null">
+                active = #{active,jdbcType=CHAR},
+            </if>
+        </set>
+        where uuid = #{uuid,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.dly.auth.model.entity.Dictionary">
+      update dictionary
+      set
         dic_id = #{dicId,jdbcType=INTEGER},
-      </if>
-      <if test="dicName != null">
         dic_name = #{dicName,jdbcType=VARCHAR},
-      </if>
-      <if test="dicItm != null">
         dic_itm = #{dicItm,jdbcType=INTEGER},
-      </if>
-      <if test="dicItmName != null">
         dic_itm_name = #{dicItmName,jdbcType=VARCHAR},
-      </if>
-      <if test="dicSort != null">
         dic_sort = #{dicSort,jdbcType=INTEGER},
-      </if>
-      <if test="active != null">
-        active = #{active,jdbcType=CHAR},
-      </if>
-    </set>
-    where uuid = #{uuid,jdbcType=VARCHAR}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.dly.auth.model.entity.Dictionary">
-    update dictionary
-    set dic_id = #{dicId,jdbcType=INTEGER},
-      dic_name = #{dicName,jdbcType=VARCHAR},
-      dic_itm = #{dicItm,jdbcType=INTEGER},
-      dic_itm_name = #{dicItmName,jdbcType=VARCHAR},
-      dic_sort = #{dicSort,jdbcType=INTEGER},
-      active = #{active,jdbcType=CHAR}
-    where uuid = #{uuid,jdbcType=VARCHAR}
-  </update>
+        active = #{active,jdbcType=CHAR}
+      where uuid = #{uuid,jdbcType=VARCHAR}
+    </update>
+
 </mapper>

@@ -109,6 +109,20 @@
             <artifactId>jedis</artifactId>
         </dependency>
 
+        <!-- Excel工具依赖包 -->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+        </dependency>
+
         <!--短信验证码 -->
         <dependency>
             <groupId>com.aliyun</groupId>

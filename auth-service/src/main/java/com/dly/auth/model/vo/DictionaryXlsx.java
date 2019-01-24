@@ -1,4 +1,4 @@
-package com.dly.auth.model.entity;
+package com.dly.auth.model.vo;
 
 import lombok.Data;
 
@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author 
  */
 @Data
-public class Dictionary implements Serializable {
+public class DictionaryXlsx implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -18,7 +18,7 @@ public class Dictionary implements Serializable {
     /**
      * 字典类型id
      */
-    private Integer dicId;
+    private String dicId;
 
     /**
      * 字典类型名称
@@ -28,7 +28,7 @@ public class Dictionary implements Serializable {
     /**
      * 字典类型项
      */
-    private Integer dicItm;
+    private String dicItm;
 
     /**
      * 字典类型名称
@@ -38,7 +38,7 @@ public class Dictionary implements Serializable {
     /**
      * 排序
      */
-    private Integer dicSort;
+    private String dicSort;
 
     /**
      * 1:激活；0:未激活
@@ -56,7 +56,7 @@ public class Dictionary implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Dictionary other = (Dictionary) that;
+        DictionaryXlsx other = (DictionaryXlsx) that;
         return (this.getUuid() == null ? other.getUuid() == null : this.getUuid().equals(other.getUuid()))
             && (this.getDicId() == null ? other.getDicId() == null : this.getDicId().equals(other.getDicId()))
             && (this.getDicName() == null ? other.getDicName() == null : this.getDicName().equals(other.getDicName()))
